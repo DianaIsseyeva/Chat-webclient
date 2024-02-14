@@ -4,9 +4,9 @@ import { useLogin } from '../../hooks/useLogin';
 import Auth from './Auth';
 
 const Login = () => {
-  const { login } = useLogin();
+  const { login, error } = useLogin();
   return (
-    <Auth submitLabel='Login' onSubmit={request => login(request)}>
+    <Auth submitLabel='Login' onSubmit={request => login(request)} error={error}>
       <Link to={'/signup'} style={{ alignSelf: 'center' }}>
         <MUILink>Signup</MUILink>
       </Link>
