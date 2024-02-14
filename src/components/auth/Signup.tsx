@@ -33,7 +33,7 @@ const Signup = () => {
         }
       }}
     >
-      <Link to={'login'} style={{ alignSelf: 'center' }}>
+      <Link to={'/login'} style={{ alignSelf: 'center' }}>
         <MUILink>Login</MUILink>
       </Link>
     </Auth>
