@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { authenticatedVar } from '../../constants/authenticated';
+import { UNKNOWN_ERROR_SNACK_MESSAGE } from '../../constants/error';
 import excludedRoutes from '../../constants/excluded-routes';
+import { snackVar } from '../../constants/snack';
 import { useGetMe } from '../../hooks/useGetMe';
 
 interface GuardProps {
@@ -8,13 +10,20 @@ interface GuardProps {
 }
 
 const Guard = ({ children }: GuardProps) => {
-  const { data: user } = useGetMe();
+  const { data: user, error } = useGetMe();
   useEffect(() => {
     if (user) {
       authenticatedVar(true);
     }
   }, [user]);
-  // console.log(user);
+
+  useEffect(() => {
+    if (error) {
+      if (error.networkError) {
+        snackVar(UNKNOWN_ERROR_SNACK_MESSAGE);
+      }
+    }
+  }, [error]);
   return <>{excludedRoutes.includes(window.location.pathname) ? children : user && children}</>;
 };
 
