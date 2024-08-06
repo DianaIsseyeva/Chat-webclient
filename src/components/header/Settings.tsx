@@ -6,10 +6,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
+import { UNKNOWN_ERROR_SNACK_MESSAGE } from '../../constants/errors';
+import { snackVar } from '../../constants/snack';
 import { useLogout } from '../../hooks/useLogout';
 import { onLogout } from '../../utils/logout';
-import { snackVar } from '../../constants/snack';
-import { UNKNOWN_ERROR_SNACK_MESSAGE } from '../../constants/error';
 
 const Settings = () => {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);

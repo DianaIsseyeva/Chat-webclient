@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import client from '../constants/apollo-client';
+import { UNKNOWN_ERROR_MESSAGE } from '../constants/errors';
 import { API_URL } from '../constants/urls';
-import { UNKNOWN_ERROR_MESSAGE } from '../constants/error';
 
 interface LoginRequest {
   email: string;
